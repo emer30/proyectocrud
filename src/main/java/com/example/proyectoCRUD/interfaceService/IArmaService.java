@@ -7,10 +7,10 @@ import java.util.Optional;
 
 @SpringBootApplication(scanBasePackages = {"com.example.proyectoCRUD"})
 public interface IArmaService {
-
+    
     public List<Arma>listar();
-    public Optional<Arma> listarId(int id);
-    public int save (Arma a);
+    public Optional<Arma>listarId(int id);
+    public int save (Arma p);
     public void delete(int id);
 
 

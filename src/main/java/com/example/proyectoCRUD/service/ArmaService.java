@@ -1,7 +1,7 @@
 package com.example.proyectoCRUD.service;
 import com.example.proyectoCRUD.modelo.Arma;
 import com.example.proyectoCRUD.interfaceService.IArmaService;
-import com.example.proyectoCRUD.Interfaces.IArma;
+import com.example.proyectoCRUD.Interfaces.IArmaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,32 +12,31 @@ import java.util.Optional;
 public class ArmaService implements IArmaService {
 
     @Autowired
-     private IArma datos;
-
+     private IArmaRepository data;
 
     @Override
     public List<Arma> listar() {
-        return (List<Arma>) datos.findAll();
-    }
-    @Override
-    public Optional<Arma> listarId(int id){
-        return datos.findById(id);
+        return (List<Arma>) data.findAll();
     }
 
+    @Override
+    public Optional<Arma> listarId(int id) {
+
+        return data.findById(id);
+    }
 
     @Override
-    public int save(Arma a) {
-        int f = 0;
-        Arma arma = datos.save(a);
+    public int save(Arma p) {
+        int res = 0;
+        Arma arma = data.save(p);
         if(!arma.equals(null)){
-            f = 1;
+            res = 1;
         }
-        return f;
+        return res;
     }
 
     @Override
     public void delete(int id) {
-        datos.deleteById(id);
-
-    }
+            data.deleteById(id);
+    }   
 }
