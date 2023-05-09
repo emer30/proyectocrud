@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+<body style="background:url('https://www.xtrafondos.com/descargar.php?id=4007&resolucion=2560x1440')no-repeat; background-size:cover; ">
+
+
+<div class="container mt-4">
+    <center>
+    <h2>
+    <p> ingrese sus datos para resolver cualquier inquietud o sugerencia</p>
+    </h2>
+    </center>
+
+    <a th:href="@{/new}" class="btn btn-primary">AGREGAR DATOS</a>
+    <table class="table" border="=8">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>CELULAR</th>
+            <th>E-MAIL</th>
+            <th>INQUIETUDES</th>
+            <th></th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="arma:${armas}">
+            <td th:text="${arma.id}"></td>
+            <td th:text="${arma.nombre}"></td>
+            <td th:text="${arma.apellido}"></td>
+            <td th:text="${arma.celular}"></td>
+            <td th:text="${arma.e-mail}"></td>
+            <td th:text="${arma.inquietudes}"></td>
+            <td>
+                <a th:href="@{/modificar/}+${arma.id}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/eliminar/}+${arma.id}"  class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+        </center>
+
+
+</div>
+
+</>
+</html>
+
